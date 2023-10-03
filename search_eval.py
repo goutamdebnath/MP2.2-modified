@@ -11,12 +11,13 @@ def load_ranker(cfg_file):
     The parameter to this function, cfg_file, is the path to a
     configuration file used to load the index.
     """
-    return metapy.index.OkapiBM25()
+    return metapy.index.OkapiBM25(k1=1.525, b=0.75, k3 = 3.235)
+    #return metapy.index.OkapiBM25()
 
 if __name__ == '__main__':
-    if len(sys.argv) != 2:
-        print("Usage: {} config.toml".format(sys.argv[0]))
-        sys.exit(1)
+    #if len(sys.argv) != 2:
+    #    print("Usage: {} config.toml".format(sys.argv[0]))
+    #    sys.exit(1)
 
     cfg = sys.argv[1]
     print('Building or loading index...')
